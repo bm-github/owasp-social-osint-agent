@@ -1,5 +1,5 @@
 [![GitHub release (latest by date)](https://img.shields.io/github/v/release/bm-github/owasp-social-osint-agent)](https://github.com/bm-github/owasp-social-osint-agent/releases/latest)
-# 🚀 owasp-social-osint-agent
+# 🕵️ owasp-social-osint-agent
 
 **OWASP Social OSINT Agent** is an intelligent, autonomous agent designed for open-source intelligence (OSINT) investigations. It leverages both text and vision-capable Large Language Models (LLMs) via any OpenAI-compatible API to autonomously gather, analyze, and synthesize user activity across single or multiple social media platforms. The final output is a structured analytical report that turns scattered public data into coherent, actionable intelligence.
 
@@ -43,8 +43,12 @@
 
 ✅ **Data Purging:** Interactive option to purge cached text/metadata, media files, or output reports.
 
+## 🗺️ Visual Workflow: How the Agent Thinks
+
+To understand the agent's decision-making process from start to finish, you can explore the detailed workflow flowchart below.
+
 <details>
-<summary><b>📈 View Workflow Flowchart</b></summary>
+<summary><b>➡️ Click to expand the full interactive flowchart</b></summary>
 
 ```mermaid
 flowchart TD
