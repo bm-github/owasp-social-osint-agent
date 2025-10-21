@@ -1,0 +1,18 @@
+[
+  {
+    "name": "Mastodon.Social (Default Lookup)",
+    "api_base_url": "https://mastodon.social",
+    "access_token": "YOUR_ACCESS_TOKEN_FOR_MASTODON_SOCIAL",
+    "is_default_lookup_instance": true
+  },
+  {
+    "name": "Example2",
+    "api_base_url": "https://example2.org",
+    "access_token": "YOUR_ACCESS_TOKEN_FOR_EXAMPLE2_ORG"
+  },
+  {
+    "name": "Example3",
+    "api_base_url": "https://example.instance.net",
+    "access_token": "YOUR_ACCESS_TOKEN_FOR_EXAMPLE_INSTANCE"
+  }
+]

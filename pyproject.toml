@@ -1,0 +1,54 @@
+# pyproject.toml
+
+[tool.poetry]
+name = "owasp-social-osint-agent"
+version = "1.0.0"
+description = "An intelligent, autonomous agent for multi-platform Social Media OSINT investigations using LLMs."
+authors = ["Brenden Miller <brenden.miller@owasp.org>"]
+license = "MIT"
+readme = "README.md"
+homepage = "https://github.com/bm-github/owasp-social-osint-agent"
+repository = "https://github.com/bm-github/owasp-social-osint-agent"
+keywords = ["osint", "llm", "agent", "social-media", "twitter", "reddit"]
+
+[tool.poetry.dependencies]
+python = ">=3.8"
+
+# Core Application Dependencies (replaces requirements.txt)
+httpx = "^0.27.0"
+tweepy = "^4.14.0"
+praw = "^7.7.1"
+Mastodon.py = "^1.8.1"
+beautifulsoup4 = "^4.12.3"
+rich = "^13.7.1"
+Pillow = "^10.3.0"
+atproto = "^0.0.42"
+python-dotenv = "^1.0.1"
+openai = "^1.14.2"
+humanize = "^4.9.0"
+
+# This creates the command-line entry point for your application
+[tool.poetry.scripts]
+osint-agent = "socialosintagent.main:main"
+
+# Dependencies for development (testing, linting, formatting)
+# These are not installed in production, only when a developer runs `poetry install`
+[tool.poetry.group.dev.dependencies]
+pytest = "^8.1.1"
+ruff = "^0.3.4" # An extremely fast Python linter and code formatter
+
+# --- Centralized Tool Configuration ---
+# Settings for the Ruff linter/formatter
+[tool.ruff]
+line-length = 119 # A more generous line length suitable for data-heavy code
+select = [
+    "E",  # pycodestyle errors
+    "F",  # pyflakes
+    "W",  # pycodestyle warnings
+    "I",  # isort (import sorting)
+    "UP", # pyupgrade
+]
+target-version = "py38"
+
+[tool.ruff.lint.isort]
+known-first-party = ["socialosintagent"]
