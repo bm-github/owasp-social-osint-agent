@@ -1,4 +1,4 @@
-[![GitHub release (latest by date)](https://img.shields.io/github/v/release/bm-github/owasp-social-osintagent)](https://github.com/bm-github/owasp-social-osintagent/releases/latest)
+[![GitHub release (latest by date)](https://img.shields.io/github/v/release/bm-github/owasp-social-osint-agent)](https://github.com/bm-github/owasp-social-osint-agent/releases/latest)
 # 🚀 owasp-social-osint-agent
 
 **OWASP Social OSINT Agent** is an intelligent, autonomous agent designed for open-source intelligence (OSINT) investigations. It leverages both text and vision-capable Large Language Models (LLMs) via any OpenAI-compatible API to autonomously gather, analyze, and synthesize user activity across single or multiple social media platforms. The final output is a structured analytical report that turns scattered public data into coherent, actionable intelligence.
@@ -49,7 +49,7 @@
 ```mermaid
 flowchart TD
     %% Initialization
-    A([Start owasp-social-osintagent]) --> AA{{Setup Directories & API Clients<br/>Verify Environment}}
+    A([Start owasp-social-osint-agent]) --> AA{{Setup Directories & API Clients<br/>Verify Environment}}
     
     %% Mode Selection
     AA --> B{Interactive or<br/>Stdin Mode?}
@@ -208,8 +208,8 @@ flowchart TD
 ### Steps
 1.  **Clone the repository (if you haven't already):**
     ```bash
-    git clone https://github.com/bm-github/owasp-social-osintagent.git
-    cd owasp-social-osintagent
+    git clone https://github.com/bm-github/owasp-social-osint-agent.git
+    cd owasp-social-osint-agent
     ```
 2.  **Install dependencies:**
     ```bash
@@ -233,7 +233,7 @@ flowchart TD
 
     # --- Optional: OpenRouter Specific Headers (if LLM_API_BASE_URL is OpenRouter) ---
     # OPENROUTER_REFERER="http://localhost:3000"
-    # OPENROUTER_X_TITLE="owasp-social-osintagent"
+    # OPENROUTER_X_TITLE="owasp-social-osint-agent"
 
     # --- Platform API Keys (as needed) ---
     # Twitter/X
