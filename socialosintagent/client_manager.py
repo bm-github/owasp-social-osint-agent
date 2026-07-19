@@ -7,6 +7,7 @@ import tweepy
 from atproto import Client
 from atproto import exceptions as atproto_exceptions
 from mastodon import Mastodon
+from socialosintagent.platforms.twitter import uses_xquik_backend
 
 logger = logging.getLogger("SocialOSINTAgent.ClientManager")
 
@@ -22,7 +23,12 @@ class ClientManager:
         self._mastodon_clients_initialized: bool = False
 
     @property
-    def twitter_client(self) -> tweepy.Client:
+    def twitter_client(self) -> Optional[tweepy.Client]:
+        if uses_xquik_backend():
+            if not os.getenv("XQUIK_API_KEY"):
+                raise RuntimeError("XQUIK_API_KEY not set.")
+            return None
+
         if self._twitter is None:
             token = os.environ.get("TWITTER_BEARER_TOKEN")
             if not token: raise RuntimeError("TWITTER_BEARER_TOKEN not set.")
@@ -106,7 +112,14 @@ class ClientManager:
 
     def get_available_platforms(self, check_creds=True) -> List[str]:
         available = []
-        if not check_creds or os.getenv("TWITTER_BEARER_TOKEN"): available.append("twitter")
+        uses_xquik = uses_xquik_backend()
+        twitter_available = (
+            not check_creds
+            or (uses_xquik and os.getenv("XQUIK_API_KEY"))
+            or (not uses_xquik and os.getenv("TWITTER_BEARER_TOKEN"))
+        )
+        if twitter_available:
+            available.append("twitter")
         if not check_creds or all(os.getenv(k) for k in ["REDDIT_CLIENT_ID", "REDDIT_CLIENT_SECRET", "REDDIT_USER_AGENT"]): available.append("reddit")
         if not check_creds or all(os.getenv(k) for k in ["BLUESKY_IDENTIFIER", "BLUESKY_APP_SECRET"]): available.append("bluesky")
         if not check_creds or os.getenv("MASTODON_INSTANCE_1_URL"): available.append("mastodon")

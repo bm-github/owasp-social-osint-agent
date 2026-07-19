@@ -103,7 +103,8 @@ def get_sort_key(item: Any, dt_key: str) -> datetime:
     dt_val = item.get(dt_key)
     if isinstance(dt_val, str):
         try:
-            dt_obj = datetime.fromisoformat(dt_val)
+            iso_value = f"{dt_val[:-1]}+00:00" if dt_val.endswith("Z") else dt_val
+            dt_obj = datetime.fromisoformat(iso_value)
             return dt_obj if dt_obj.tzinfo else dt_obj.replace(tzinfo=timezone.utc)
         except ValueError:
             return datetime.min.replace(tzinfo=timezone.utc)

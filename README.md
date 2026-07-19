@@ -357,6 +357,12 @@ IMAGE_ANALYSIS_MODEL="your_vision_model_name"
 # --- Platform API Keys (as needed) ---
 # Twitter/X
 TWITTER_BEARER_TOKEN="your_twitter_v2_bearer_token"
+
+# Optional Twitter/X backend via Xquik
+# Keep unset to use the native Twitter/X API bearer token above.
+TWITTER_BACKEND=""
+XQUIK_API_KEY=""
+XQUIK_API_BASE_URL=""
 # Reddit
 REDDIT_CLIENT_ID="your_reddit_client_id"
 REDDIT_CLIENT_SECRET="your_reddit_client_secret"
@@ -385,6 +391,10 @@ OSINT_WEB_PASSWORD="your_password"
 # EXTRA_MASTODON_CDNS="media.myinstance.org"
 ```
 *Note: HackerNews does not require API keys. GitHub can run in a limited, unauthenticated mode but a token is recommended.*
+
+Set `TWITTER_BACKEND=xquik` with `XQUIK_API_KEY` to fetch Twitter/X profiles and recent posts through Xquik instead of the native Twitter/X API. `XQUIK_API_BASE_URL` defaults to `https://xquik.com/api/v1`. See the [Xquik authentication guide](https://docs.xquik.com/api-reference/authentication) for setup details.
+
+Xquik is an independent third-party service. Not affiliated with X Corp. "Twitter" and "X" are trademarks of X Corp.
 
 ## 🚀 Usage
 
